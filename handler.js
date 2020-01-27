@@ -45,6 +45,12 @@ app.get("/developers", function (request, response) {
 
 app.post("/developers", (request, response) => {
 
+	const addedDeveloper = request.body;
+
+	response.status(200).json({
+		message: `Successfully added the following developer: ${JSON.stringify(addedDeveloper)}`
+	})
+
 })
 
 // PUT /developers
@@ -61,5 +67,15 @@ app.put("/developers/:id", (request, response) => {
 })
 
 //DELETE /developers
+
+app.delete("/developers/:id", (request, response) => {
+
+	const deletedDeveloperId = request.params.id;
+
+	response.status(200).json({
+		message: "You issued a delete request for ID: " + deletedDeveloperId
+	})
+
+})
 
 module.exports.app = serverlessHttp(app);

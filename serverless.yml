@@ -17,3 +17,11 @@ functions:
           method: put
           path: developers/{id}
           cors: true
+      - http:
+          method: delete
+          path: developers/{id}
+          cors: true
+      - http:
+          method: post
+          path: developers
+          cors: true
